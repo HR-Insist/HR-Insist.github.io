@@ -1,0 +1,54 @@
+/* 针对使用 hexo-renderer-kramed插件导致行高的出错 */
+mjx-container[display], .has-jax {
+    line-height: 2 !important;  
+}
+
+/* footer样式 */
+#footer {
+    /* background: #fff url("/images/footer.jpg"); */
+    background: #fff;
+    /* opacity: 0.3; */
+}
+#footer-wrap {
+    position: relative;
+    padding: 20px 20px;
+    /* color: var(--light-grey); */
+    color: #000;
+    text-align: center;
+}
+#footer-wrap a{
+    color: #49b1f5;
+}
+
+/* note 标签样式 */
+.note {
+    margin: 0 0 10px;
+    padding: 10px 15px;
+}
+.note p {
+    margin: 5px !important;
+}
+侧边栏样式
+/*  */
+#aside-content .card-widget {
+    padding: 20px 15px;
+}
+#aside-content #card-toc .toc-content {
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+}
+#aside-content #card-toc .toc-content > * {
+    margin: 0 !important;
+}
+
+/* top_img 样式 */
+#page-header.post-bg {
+    background-color: transparent;
+    background-size: contain;
+}
+
+/* cover 样式 */
+#recent-posts > .recent-post-item .post_cover img.post_bg {
+    object-fit: contain;
+}

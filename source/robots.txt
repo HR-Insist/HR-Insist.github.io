@@ -1,0 +1,17 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /archives/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /img/
+Disallow: /js/
+Disallow: /lib/
+Disallow: /log/
+Disallow: /photos/
+
+Sitemap: https://hr-insist.github.io/sitemap.xml
+Sitemap: https://hr-insist.github.io/baidusitemap.xml
