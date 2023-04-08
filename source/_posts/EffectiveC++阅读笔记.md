@@ -6,7 +6,7 @@ tags: C++
 keywords: C++, effective C++
 description: "Effective C++阅读笔记"
 top_img: false
-cover: C++/EffectiveC++阅读笔记/EffectiveC++.jpg
+cover: C/EffectiveC++阅读笔记/EffectiveC++.jpg
 toc_style_simple:
 toc_number: 
 ---

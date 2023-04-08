@@ -5,7 +5,7 @@ categories: Paper Notes
 tags:
   - 论文笔记
   - Deep Learning
-  - Compute Vision
+  - Computer Vision
 keywords: "论文笔记, Swin Transformer, 论文解读"
 description: Swin Transformer网络是Transformer模型在视觉领域的又一次碰撞,并且已经获得ICCV 2021 best paper的荣誉称号。
 top_img: /Paper-Notes/Paper-ICCV-2021-Swin_Transformer/top_img.png

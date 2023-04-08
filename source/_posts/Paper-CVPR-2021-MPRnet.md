@@ -5,7 +5,7 @@ categories: Paper Notes
 tags: 
   - Deep Learning
   - 论文笔记
-  - Conpute Vision
+  - Computer Vision
   - 图像恢复
   - Image Restoration
 keywords: "MPRnet, Multi-Stage Progressive Image Restoration, 图像恢复, Image Restoration"

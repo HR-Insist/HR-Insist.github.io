@@ -5,7 +5,7 @@ categories: Paper Notes
 tags:
   - Deep Learning
   - 论文笔记
-  - Conpute Vision
+  - Computer Vision
 keywords: "Vision Transformer, ViT"
 description: "ViT将CV和NLP结合起来，对原始图片进行分块，展平成序列，输入进原始Transformer模型的编码器部分，最后接入一个全连接层对图片进行分类。"
 top_img: "/Paper-Notes/Paper-ICLR-2020-Vision_Transformer/ViT.png"
