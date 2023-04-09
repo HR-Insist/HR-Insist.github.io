@@ -92,6 +92,184 @@ Fraction d2=f+4; // [Error] conversion from 'double' to 'Fraction' requested
 
 - 此时4无法转换为Fraction类型，那么就只有 f 可以转换为 double 类型，消除了二义性。但是f+4=4.6 得到一个double类型的结果，然而double类型的值无法转换为Fraction类型，所以依然导致报错。
 
+### 4、pointer-like classes （仿指针）
+
+**（1）智能指针**
+
+**（2）迭代器**
+
+### 5、function-like classes (仿函数)
+
+所谓仿函数就是： 一个类，**重载操作符()之后**，表现的像一个函数。
+
+### 6、namespace经验谈
+
+namespace的主要用途就是为了避免命名冲突，在大型工程中尤为常见，避免A写的代码与B写的代码有重名的class或function。
+
+自己在写一些测试代码时也可以使用命名空间封装起来。
+
+### 7、class template 类模板
+
+使用时加上<参数type>
+
+### 8、Function template 函数模板
+
+函数模板在使用时不需要加参数类型，编译器会自动推导参数的类型。
+
+### 9、member template 成员模板
+
+成员模板是指：在一个模板类里面的一个成员依旧是一个模板形式。
+
+### 10、specialization（模板特化）
+
+将泛化的模板指定为固定的模板参数类型
+
+```c++
+template <class Key> // 泛化
+struct hash{...};
+
+template<> // 特化
+struct hash<long>{
+    size_ t operator() (long x) const {return x; }
+};
+ cout << hash<long>()(1000); // 使用(全)特化模板
+```
+
+
+
+### 11、partial specialization （模板偏特化）
+
+1. 个数上的偏特化
+
+   即将模板中的某个/些参数提前绑定（赋予）默认值。
+
+   ！！！注意：只能提前绑定靠后的模板参数，例：假设有五个模板参数，只能绑定3/4/5，不能绑定1/3/5
+
+2. 范围上的偏特化
+
+   例如：将**什么类型都可以**传的模板，偏特化为**只有指针类型能**传的模板。
+
+   ```c++
+   template <typename T>
+   class C{...};
+   // 偏特化
+   template <typename T>
+   classC<T*>{...}
+   
+   C<string> obj1; // 使用上面的模板
+   C<string*>  obj2; // 使用下面的偏特化模板（特别含有指针的模板）
+   ```
+
+### 12、模板模板参数
+
+1. 模板模板参数就是模板的参数又是一个模板，如：
+
+   ```c++
+   template<typename T, template<typename U> class Container>
+   class XCls
+   {
+       private:
+           Container<U> c;
+   };
+   ```
+
+   模板的第一个参数是`T`类型，第二个参数是一个`Container`，他是一个可以指定一个`U`类型的变量。
+
+   那么如何使用他呢？
+
+   ```c++
+   template<typename T>
+   class test
+   {
+       private:
+           T t;
+   };
+   ```
+
+   ```c++
+   int main(void)
+   {
+       XCls<std::string, test> mylst1;
+       return 0;
+   }
+   ```
+
+   我们可以定义一个模板类，然后将其如上方式传入就可以了。
+
+   但是如果传入一个容器呢？比如：`list`
+
+   ```c++
+   XCls<string, list> mylst1;
+   ```
+
+   如果这样，编译就会报错。分析如下：
+
+   将`string` 和 `list`传入到类`XCls`中，然后就会定义一个`list<string>`的c变量，这样看起来是可以的，因此我们使用list容器的时候就是`list<一个类型>`，但是这里为什么就不行呢？是因为list容器实质上是有第二参数的，虽然第二参数有默认的参数，正如我们平常使用的那样，只需要指定一个参数，但是在这里无法通过编译，因此，我们使用如下解决办法：
+
+   ```c++
+   template<typename T>
+   using Lst = std::list<T, std::allocator<T>>;
+   
+   XCls<std::string, Lst> mylst2;
+   // 编译时需要加上std=c++11
+   ```
+
+   使用`C++11`的`using`关键字的新功能，来定义一个类型的别名，而且使用在模板的情况下，因此我们编译时要指定`std=c++11`。
+
+   然后我们将`list`的别名`Lst`传入进入，就可以编译通过。
+
+2. 这不是模板模板参数
+
+   ```c++
+   template<typename T, typename Sequence = list<T>>
+   class stack
+   {
+       private:
+           Sequence c;
+   };
+   stack<int> s1;
+   stack<int, deque<int>> s2; 
+   stack<int, deque> s3; 
+   ```
+
+   第一种，只指定了第一个模板参数，使用第二个默认的模板参数，第三个可以仅指定容器类型而不需要再次指定元素类型。
+
+   第二种，指定了两个模板参数。
+
+   但是！**这不是模板模板参数**。因为，一旦指定了第一个模板参数，那么第二个参数的类型就会确定，而真正的模板模板参数，第二个模板参数和第一个模板参数的类型是没有关系的，可以指定为第一个模板参数的类型，也可以指定为其他类型。因此，这不是模板模板参数！！！
+
+### 13、C++标准库
+
+侯捷老师提到，一定要多多使用、了解、学习C++的标准库！最好是自己亲自动手编程使用那些标准库，不需要自己再次编程实现标准库，因为你实现的没它实现的好，只需要学习怎么使用就行。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
