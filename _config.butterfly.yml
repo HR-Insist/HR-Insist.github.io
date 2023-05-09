@@ -8,6 +8,8 @@ menu:
     Archives: /archives/ || fas fa-archive
     Tags: /tags/ || fas fa-tags
     Categories: /categories/ || fas fa-folder-open
+  # Resource|| fas fa-brands fa-sourcetree:
+  #   PDF: /resource/PDF/ || fas fa-regular fa-file-pdf
   Games||fas fa-gamepad:
     2 0 4 8: /games/2048小游戏/ || fas fa-chess-board
   Photos: /photos/ || fas fa-image

@@ -6,14 +6,14 @@ tags: C++
 keywords: 
 description:
 top_img: false
-cover: 
+cover: C/C++面向对象高级编程（上-侯捷）/index.png
 toc_style_simple:
 toc_number: false
 ---
 
 {% note info flat %}
 
-- 本文是学习侯捷老师的C++面向对象高级编程（上）的课程笔记。
+本文是学习侯捷老师的C++面向对象高级编程（上）的课程笔记。
 
 {% endnote %}
 
