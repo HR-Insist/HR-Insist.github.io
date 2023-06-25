@@ -266,6 +266,115 @@ if (p != 0 && strlen(p) > 10){}
 
 - ！！**operator new 与 operator delete 配合使用。**千万不能错误搭配。
 
+## 异常（Exceptions）
+
+### 条款9：利用 destructors 避免泄漏资源
+
+！！！每当 new 一个新的对象，一定要确保成功 delete 它，否则就会造成内存泄漏。
+
+```c++
+void processAdoptions(istream& dataSource){
+	while(dataSource){
+    	ALA *pa = readALA(dataSource); // new 新的对象
+        pa->processAdoption(); // 处理事务
+        delete pa; // 删除pa指向的对象
+    }
+}
+```
+
+但是如果 ` pa->processAdoption(); `抛出异常，之后的所有语句都会被跳过，不再执行，这意味着 `deleta pa;`不会执行，造成内存泄漏。
+
+解决方法1：
+
+```c++
+void processAdoptions(istream& dataSource){
+    while(dataSource){
+    	ALA *pa = readALA(dataSource);
+        try{
+        	pa->processAdoption();
+        }
+    	catch(...){
+    		delete pa; //在抛出异常的时候避免泄露
+    		throw;
+   		}
+    	delete pa; //在不抛出异常的时候避免泄露
+    }
+}
+```
+
+因为这种情况会需要删除两次pa，代码维护很麻烦，所以需要进行优化：
+
+只要我们能够将 “一定得执行的清理代码” 移到 processAdoptions 函数的某个局部对象的 destructors 内即可。因为局部对象总是会在函数结束时被析构，不论函数如何结束。
+
+如何把 delete 动作从 processAdoptions 函数移到函数内的某个局部对象的 destructor 内：以一个 “类似指针的对象（智能指针）”取代指针 pa。当这个类似指针的对象被（自动）销毁，我们可以令其 destructor 调用 delete。
+
+```c++
+void processAdoptions(istream& dataSource){
+    while(dataSource){
+        auto_ptr<ALA> pa(readALA(dataSource)); // 现在auto_ptr已被弃用，推荐使用 shared_ptr!!!
+        pa->processAdoption();
+    }
+}
+```
+
+### 条款10：在 constructors 内阻止资源泄漏（resource leak）
+
+考虑下面的情况：
+
+```c++
+BookEntry::BookEntry():theImage(0), theAudioClip(0){
+	theImage = new Image(imageFileName);
+	theAudioClip = new AudioClip(audioClipFileName);
+}
+BookEntry::~BookEntry(){
+	delete theImage;
+    delete theAudioClip;
+}
+```
+
+如果 `theAudioClip = new AudioClip(audioClipFileName);` 有 exception 抛出，那么函数构造失败，destructor 自然不会被调用。但是 theImage 对象构造成功了，这就导致 BookEntry constructor 所分配的 Image object 还是泄漏了。
+
+由于C++ 不自动清理那些 “构造期间抛出 exceptions” 的对象，所以你必须设计你的 constructor，使得它们能够自动清理。通常只需将所有可能的 exceptions 捕捉起来，执行某种清理工作，然后重新抛出 exception，使它继续传播出去即可。
+
+解决办法一：
+
+```c++
+BookEntry::BookEntry(){
+    try{
+    	theImage = new Image(imageFileName);
+    	theAudioClip = new AudioClip(audioClipFileName);
+    }
+    catch(...){ // 在构造函数内捕捉异常
+    	delete theImage;
+    	delete theAudioClip;
+    	throw;
+    }
+}
+```
+
+一个更好的解答是，接收条款9的忠告，将 theImage 和 theAudioClip 所指对象视为资源，交给局部对象来管理。 不论 theImage 和 theAudioClip 都是指向动态分配而得的对象，当指针本身停止活动，那些对象都应该被删除。
+
+```c++
+class BookEntry{
+public:......
+private:
+	const auto_ptr<Image> theImage; // 同样的，现在auto_ptr已被弃用，推荐使用 shared_ptr!!!
+	const auto_ptr<AudioClip> theAudioClip;
+}
+BookEntry::BookEntry(const string& imageFileName, const string& audioClipFileName):
+	theImage(imageFileName != "" ? new Image(imageFileName) : 0), 
+	theAudioClip(audioClipFileName != "" ? new AudiaClip(audioClipFileName) : 0)
+    {}
+```
+
+这样不仅解决了在 constructors 内阻止资源泄漏，而且还大幅简化 destructor。
+
+`BookEntry::~BookEntry(){}  // 不需要做什么事！` 
+
+
+
+
+
 
 
 

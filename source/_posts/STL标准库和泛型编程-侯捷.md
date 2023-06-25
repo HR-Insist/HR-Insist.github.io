@@ -209,27 +209,125 @@ stack 和 queue 里有一个deque。
 
 list 在开辟内存时，不仅需要数据的空间，还需要前后指针的空间。
 
-++i
-
-i++
-
-
-
-
-
 ### 14. 深度探索 list（下）
 
+### 15. 迭代器的设计原则和Iterator Traits的作用与设计
 
+### 16. 容器vector深度探索
 
+vector是一种**动态增长**的数组
 
+靠三个指针start ( begin ), finish ( end ), end_of_storage就可以控制整个容器。
 
+容器是前闭后开后开，因此finish后面还有空间。
 
+![vector](STL标准库和泛型编程-侯捷/容器vector.png)
 
+当 vector 的 capacity 不足时，就会**二倍增长**。开辟足够的新空间用于存放 capacity 大小的 vector，每一次的内存reallocation，就会有大量的拷贝动作（将原来的vector拷贝到新的内存空间），会引发大量的拷贝构造函数，而且原来的空间也要都释放（析构函数）。
 
+### 17. array、forward_list深度探索
 
+- array 是不能扩充的，必须知道大小。
+- array 没有构造函数和析构函数。
+- forward_list 是单向链表。
 
+### 18. deque、queue和 stack深度探索（上）
 
+`deque`是双向开口的一段空间，其实是分段连续。单向开口的就是 `vector`。
 
+![容器deque](STL标准库和泛型编程-侯捷/容器deque.png)
+
+`deque<T>::insert()`：
+
+- 如果是在最前端或者最后端插入新元素，那就直接插入。
+- 否则判断插入的位置靠近前端还是后端。如果安插点之前的元素较少，就把安插点之前的元素往前移动；否则就把安插点之后的元素往后移动。
+
+### 19.  deque、queue和 stack深度探索（下）
+
+![deque的减法重载](STL标准库和泛型编程-侯捷/deque的减法重载.png)
+
+`queue` 先进先出， `stack` 先进后出。二者都没有 `iterator`。
+
+queue 和 stack 的内部默认有一个deque，封掉deque的某些功能，就实现了queue 和 stack。
+
+```c++
+template<class T, class Sequence=deque<T>>
+class queue{
+public:
+    // ....
+private:
+    Sequence c;//低层容器
+    // ....
+}
+```
+
+statck 和 queue 默认的是使用 deque 做为低层结构，也可以选择使用 list 做为底层结构。
+
+queue 不可选择 vector 做为底层结构，因为 vector 没有 pop 函数。
+
+stack 和 queue 都补课选择 set 或 map 作为底层结构。因为：
+
+`stack<string, set<string>> c;`  has no member named 'push_back'、'back'、'pop_back' ······
+
+`stack<string, map<string>> c;`  map的使用就错了。
+
+### 20. RB-tree 深度探索
+
+`Red-Black tree` （红黑树）是一种平衡二元搜索树。
+
+不应使用 `rb_tree` 的 `iterators` 改变元素值（key 值）。
+
+提供两种 insert 操作：`insert_unique()` 和 `insert_equal()` 。前者表示 key 值不可重复，否则插入失败；后者表示 key 值可以重复。insert 操作可能会导致树的结构改变。
+
+![容器rb_tree](STL标准库和泛型编程-侯捷/容器rb_ree.png)
+
+我们不会直接使用rb_tree，而是使用更上层的set和map。
+
+```c++
+templater<class Key,
+	class Value, //Value表示key和data的整体<key, data>
+	class KeyOfValue,//如何在value里面拿到key
+	class Compare,//告诉红黑树如何比大小
+	class Alloc = alloc>
+```
+
+### 21. set、multiset深度探索
+
+`set/multiset` 以 rb_tree 为底层，可以自动排序，其元素的 value 和 可以 合一： **value 就是 key**。
+
+无法使用 `set/multiset` 的 `iterators` 改变元素值。
+
+`set` 元素的 key 必须独一无二， 因此其 insert() 用的是 rb_ tree 的 `insert _unique()`。
+
+`multiset` 元素的 key 可以重复，因此其 insert() 用的是 rb_ tree 的 `insert_equal()` 。
+
+![容器set](STL标准库和泛型编程-侯捷/容器set.png)
+
+set de 所有操作，都是呼叫底层 rb_tree 的操作。
+
+！！！容器自身的算法 往往比 泛型算法 更快。
+
+### 22. map、multimap深度探索
+
+`map/multimap` 以 rb_tree 为底层，可以自动排序。
+
+无法使用 `map/multimap` 的 `iterators` 改变元素 key 值，但是可以改变元素 data 值。
+
+map 内部自动将 user 指定的 key_type 设为 const，以禁止对元素的 key 值进行赋值。
+
+`set` 元素的 key 必须独一无二， 因此其 insert() 用的是 rb_ tree 的 `insert _unique()`。
+
+`multiset` 元素的 key 可以重复，因此其 insert() 用的是 rb_ tree 的 `insert_equal()` 。
+
+![容器map](STL标准库和泛型编程-侯捷/容器map.png)
+
+map 拥有独特的 operator[] ：如果找到 key，返回 data；如果未找到，则插入 key。
+
+其中的关键就是 `lower_bound()` 算法。
+
+![map的operator](STL标准库和泛型编程-侯捷/map的operator[].png)
+
+### 23. hashtable深度探索（上）
 
 
 
