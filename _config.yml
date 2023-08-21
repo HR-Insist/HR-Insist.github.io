@@ -108,11 +108,8 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: 
-    # github: https://github.com/HR-Insist/HR-Insist.github.io.git
-    github: git@github.com:HR-Insist/HR-Insist.github.io.git
-    # gitee: https://gitee.com/HR-Insisit/hr-insist.git
-  branch: main
+  repo: git@github.com:HR-Insist/HR-Insist.github.io.git
+  branch: master
 
 # photo的密码页配置
 encrypt: # hexo-blog-encrypt
