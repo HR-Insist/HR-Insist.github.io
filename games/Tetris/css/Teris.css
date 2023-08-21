@@ -1,1 +1,51 @@
-*{margin:0;padding:0}a{text-decoration:none}body{background:#faf8ef}.game-container{position:relative;top:20px;margin:0 auto;width:411px;height:821px;background-color:#CCC0B3}table{border-collapse:collapse;border-spacing:0}td{width:40px;height:40px;border:1px solid #BBADA0}.color1{background-color:red}.color2{background-color:#00f}.color3{background-color:orange}.color4{background-color:purple}.color5{background-color:#87ceeb}.color6{background-color:#ff0}.color7{background-color:green}
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background: #faf8ef;
+}
+
+.game-container {
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+    width: 411px;
+    height: 821px;
+    background-color: #CCC0B3;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #BBADA0;
+}
+
+.color1{
+    background-color: red;
+}
+.color2{
+    background-color: blue;
+}
+.color3{
+    background-color: orange;
+}
+.color4{
+    background-color: purple;
+}
+.color5{
+    background-color: skyblue;
+}
+.color6{
+    background-color: yellow;
+}
+.color7{
+    background-color: green;
+}
