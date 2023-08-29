@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hr-insist.github.io/SQL/Postgres-xl%E9%9B%86%E7%BE%A4update-not-supported/</loc>
+    <lastmod>2023-08-29</lastmod>
+  </url>
+  <url>
     <loc>https://hr-insist.github.io/Java/SpringCache+Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98/</loc>
     <lastmod>2023-08-16</lastmod>
   </url>

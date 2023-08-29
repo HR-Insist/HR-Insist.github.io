@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>解决Postgres-xl集群update not supported</title>
+      <link href="/SQL/Postgres-xl%E9%9B%86%E7%BE%A4update-not-supported/"/>
+      <url>/SQL/Postgres-xl%E9%9B%86%E7%BE%A4update-not-supported/</url>
+      
+      
+      <categories>
+          
+          <category> SQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringCache+Redis实现缓存</title>
       <link href="/Java/SpringCache+Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98/"/>
       <url>/Java/SpringCache+Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98/</url>
