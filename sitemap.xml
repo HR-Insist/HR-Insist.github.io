@@ -4,16 +4,7 @@
   <url>
     <loc>https://hr-insist.github.io/Java/Nacos%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</loc>
     
-    <lastmod>2023-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hr-insist.github.io/Java/Nacos%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/</loc>
-    
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +13,16 @@
   <url>
     <loc>https://hr-insist.github.io/uncategorized/SpringCloud%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hr-insist.github.io/Java/Nacos%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/</loc>
+    
+    <lastmod>2023-10-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -283,7 +283,7 @@
 
   <url>
     <loc>https://hr-insist.github.io/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -291,84 +291,84 @@
   
   <url>
     <loc>https://hr-insist.github.io/tags/C/</loc>
-    <lastmod>2023-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hr-insist.github.io/tags/Hexo/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Git/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hr-insist.github.io/tags/Hexo/</loc>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Java/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/SpringCloud/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Deep-Learning/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Computer-Vision/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Image-Restoration/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/SQL/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/tags/Butterfly/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -377,42 +377,42 @@
   
   <url>
     <loc>https://hr-insist.github.io/categories/C/</loc>
-    <lastmod>2023-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hr-insist.github.io/categories/Hexo/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/categories/Git/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hr-insist.github.io/categories/Hexo/</loc>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/categories/Java/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/categories/Paper-Notes/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hr-insist.github.io/categories/SQL/</loc>
-    <lastmod>2023-10-15</lastmod>
+    <lastmod>2023-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
