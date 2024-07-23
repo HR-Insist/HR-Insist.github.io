@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SpringBoot接口接收整数型字段传小数不报错</title>
+      <link href="/Java/SpringBoot%E6%8E%A5%E5%8F%A3%E6%8E%A5%E6%94%B6%E6%95%B4%E6%95%B0%E5%9E%8B%E5%AD%97%E6%AE%B5%E4%BC%A0%E5%B0%8F%E6%95%B0%E4%B8%8D%E6%8A%A5%E9%94%99/"/>
+      <url>/Java/SpringBoot%E6%8E%A5%E5%8F%A3%E6%8E%A5%E6%94%B6%E6%95%B4%E6%95%B0%E5%9E%8B%E5%AD%97%E6%AE%B5%E4%BC%A0%E5%B0%8F%E6%95%B0%E4%B8%8D%E6%8A%A5%E9%94%99/</url>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Dubbo参数校验</title>
       <link href="/Java/Dubbo%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/"/>
       <url>/Java/Dubbo%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/</url>
