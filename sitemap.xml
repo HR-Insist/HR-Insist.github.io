@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hr-insist.github.io/Java/Dubbo%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/</loc>
+    
+    <lastmod>2024-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hr-insist.github.io/games/Tetris/Tetirs.html</loc>
     
     <lastmod>2024-07-23</lastmod>
@@ -320,6 +329,13 @@
   </url>
   
   <url>
+    <loc>https://hr-insist.github.io/tags/Git/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hr-insist.github.io/tags/Java/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -328,13 +344,6 @@
   
   <url>
     <loc>https://hr-insist.github.io/tags/SpringCloud/</loc>
-    <lastmod>2024-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hr-insist.github.io/tags/Git/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
