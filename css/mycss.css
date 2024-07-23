@@ -52,3 +52,7 @@ mjx-container[display], .has-jax {
 #recent-posts > .recent-post-item .post_cover img.post_bg {
     object-fit: contain;
 }
+
+#article-container p {
+    margin: 0 0 12px;
+}

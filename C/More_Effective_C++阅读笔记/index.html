@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>More Effective C++阅读笔记 | Modesty</title><meta name="keywords" content="C++, effective C++"><meta name="author" content="HRui"><meta name="copyright" content="HRui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="More Effective C++阅读笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="More Effective C++阅读笔记">
+<meta property="og:url" content="https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Modesty">
+<meta property="og:description" content="More Effective C++阅读笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/MoreEffectiveC++.jpg">
+<meta property="article:published_time" content="2023-05-08T08:40:00.000Z">
+<meta property="article:modified_time" content="2024-07-23T01:54:21.944Z">
+<meta property="article:author" content="HRui">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/MoreEffectiveC++.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="mjzhXTFsn0W2t12m_s8M0rABMWYSTK2H8cwOgjJ0cww"/><meta name="baidu-site-verification" content="code-Tm06TRSgOZ"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'More Effective C++阅读笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-23 09:54:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mycss.css"><link rel="stylesheet" href="/css/math.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Contents</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-gamepad"></i><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/games/2048%E5%B0%8F%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-chess-board"></i><span> 2 0 4 8</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/photos/"><i class="fa-fw fas fa-image"></i><span> Photos</span></a></div><div class="menus_item"><a class="site-page" href="/log/"><i class="fa-fw fas fa-clock"></i><span> Log</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Modesty</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> Contents</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-gamepad"></i><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/games/2048%E5%B0%8F%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-chess-board"></i><span> 2 0 4 8</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/photos/"><i class="fa-fw fas fa-image"></i><span> Photos</span></a></div><div class="menus_item"><a class="site-page" href="/log/"><i class="fa-fw fas fa-clock"></i><span> Log</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">More Effective C++阅读笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-08T08:40:00.000Z" title="发表于 2023-05-08 16:40:00">2023-05-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-23T01:54:21.944Z" title="更新于 2024-07-23 09:54:21">2024-07-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="More Effective C++阅读笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><div class="note info flat"><ul>
+<li>《More Effective C++》是侯捷老师翻译的C++必读书籍之一。</li>
+<li>工欲善其事，必先利其器！</li>
+</ul>
+</div>
+<h2 id="基础议题（Basics）"><a href="#基础议题（Basics）" class="headerlink" title="基础议题（Basics）"></a>基础议题（Basics）</h2><h3 id="条款1：仔细区别-pointers-和-references"><a href="#条款1：仔细区别-pointers-和-references" class="headerlink" title="条款1：仔细区别 pointers 和 references"></a>条款1：仔细区别 pointers 和 references</h3><p>&emsp;&emsp;没有所谓的 <em>null reference</em>。一个 <em>reference</em> 必须代表某个对象。所以如果你有一个变量，其目的是用来指向（代表）另一个对象，但是也<strong>有可能不指向（代表）任何对象，那么你应该使用 <em>pointer</em>，因为你可以将 <em>pointer</em> 设为 <em>null</em>。</strong>换个角度，如果这个变量总是必须代表一个对象，也即是说<strong>如果你的设计并不允许这个变量为 <em>null</em>，那么你应该使用 <em>reference</em>。</strong></p>
+<p>&emsp;&emsp;<code>char *pc = 0;   // 将 pointer 设定为 null。</code></p>
+<p>&emsp;&emsp;<code>char&amp; rc = *pc; // 让reference 代表 null pointer 的解引值。</code></p>
+<p>&emsp;&emsp;上述两行是有害的行为，其结果不可预期（C++对此没有定义），编译器可以产生任何可能的输出。<strong>！！！C++ 要求 <em>reference</em> 必须有初值。</strong></p>
+<h3 id="条款2：最好使用-C-转型操作符"><a href="#条款2：最好使用-C-转型操作符" class="headerlink" title="条款2：最好使用 C++ 转型操作符"></a>条款2：最好使用 C++ 转型操作符</h3><p>C++ 导入了4个新的转型操作符：</p>
+<ul>
+<li><p><strong>static_cast</strong>：转换变量类型。只能完成可以进行类型转换的转型，例 int-&gt;double。不能：struct-&gt;int</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> first, second;</span><br><span class="line"><span class="type">double</span> res = ((<span class="type">double</span>)first) / second; <span class="comment">// 旧式C语言风格</span></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="type">double</span> res = <span class="built_in">static_cast</span>&lt;<span class="type">double</span>&gt;(first) / second; <span class="comment">// C++ 风格</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>const_cast</strong>：改变某物的常量性或易变性。</p>
+</li>
+<li><p><strong>dynamic_cast</strong>：用来执行继承体系中“安全的<strong>向下转型</strong>或<strong>跨系转型</strong>动作”。利用 dynamic_cast 将“指向 base class objects 的 <strong>pointers </strong>或 <strong>reference</strong>“ 转型为 ”指向 derived（或sibling base）class objects 的 pointers 或 references”，并得知转型是否成功。如果转型失败，会以一个 null指针（当转型对象是指针）或一个 exception（当转型对象是reference）表现出来。</p>
+</li>
+<li><p><strong>reinterpret_cast</strong>：它的最常用用途是转换“函数指针”类型。</p>
+</li>
+</ul>
+<h3 id="条款3：绝对不要以多态（polymorphically）方式处理数组"><a href="#条款3：绝对不要以多态（polymorphically）方式处理数组" class="headerlink" title="条款3：绝对不要以多态（polymorphically）方式处理数组"></a>条款3：绝对不要以多态（polymorphically）方式处理数组</h3><ol>
+<li><p>对于数组作为参数的传递只有按<strong>引用传递</strong>或者传递<strong>首元素的地址</strong>，不存在按值传递。</p>
+</li>
+<li><p>当把子类的数组传递给基类数组时除了第一个对象会发生对象切片外，其他的对象都无法有效解析，从而出现运行错误。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BST</span>&#123;...&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BalancedBST</span>: <span class="keyword">public</span> BST&#123;...&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printBSTArray</span><span class="params">(ostream&amp; s, <span class="type">const</span> BST array[], <span class="type">int</span> numElements)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;numElements; ++i)&#123;</span><br><span class="line">    	s &lt;&lt; array[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">BST BSTArray[<span class="number">10</span>];</span><br><span class="line"><span class="comment">// do something</span></span><br><span class="line"><span class="built_in">printBSTArray</span>(std::cout, BSTArray, <span class="number">10</span>); <span class="comment">// 运行良好</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BalancedBST bBSTArray[<span class="number">10</span>];</span><br><span class="line"><span class="comment">// do something</span></span><br><span class="line"><span class="built_in">printBSTArray</span>(std::cout, bBSTArray, <span class="number">10</span>); <span class="comment">// 运行错误</span></span><br></pre></td></tr></table></figure>
+<p>错误原因在于 for 循环中的  <code>s &lt;&lt; array[i];</code>。</p>
+<p><strong>！！！</strong>array[i] 其实是一个指针算术表达式的简写，它代表的其实是 *(array+i)，array 是一个指向数组起始处的指针。array 所指内存和array+i 所指内存两者相距：<strong>i*sizeof(数组中对象)</strong>，因为array[0] 和 array[i] 之间有 i 个对象。</p>
+<p>array 在 printBSTArray 函数中被声明为“类型为BST”的数组。所以编译器默认数组中的每个元素类型必然为BST类型，距离为 <strong>i*sizeof(BST)</strong>。然而，当你传入 BalancedBST类型的数组时，实际距离应该为  <strong>i*sizeof(BalancedBST)</strong>，从而导致不可预期的错误。</p>
+</li>
+<li><p>如果你尝试通过一个 base class 指针，删除一个由 derived class objects 组成的数组，那么上述问题还是会以另一种不同面貌出现。即：析构函数的调用时出现问题。</p>
+</li>
+</ol>
+<h3 id="条款4：非必要不提供-default-constructor"><a href="#条款4：非必要不提供-default-constructor" class="headerlink" title="条款4：非必要不提供 default constructor"></a>条款4：非必要不提供 default constructor</h3><p>缺少default constructor会出现几个问题：</p>
+<ol>
+<li>在产生数组的时候，没有任何办法可以为数组中的对象指定 constructor 自变量。</li>
+<li>他们将不适用于许多 template-based container classes。</li>
+</ol>
+<h2 id="操作符（Operator）"><a href="#操作符（Operator）" class="headerlink" title="操作符（Operator）"></a>操作符（Operator）</h2><h3 id="条款5：对定制的“类型转换函数”保持警惕"><a href="#条款5：对定制的“类型转换函数”保持警惕" class="headerlink" title="条款5：对定制的“类型转换函数”保持警惕"></a>条款5：对定制的“类型转换函数”保持警惕</h3><ol>
+<li><p>C++ 允许内置数据类型之间(例如char和int，int和double等)进行隐式转换，对于内置类型之间的隐式转换有详细的规则，但不管怎样，这些都是语言提供的，既相对安全，我们又无法更改。</p>
+<p>对于自定义的类类型，隐式转换可以通过<strong>带单一自变量的构造函数</strong>和<strong>隐式类型转换操作符</strong>来实现。所谓”单一自变量指的是可以有多个参数，但除了第一个参数其他参数必须有默认实参)。所谓隐式类型转换操作符，是一个 member function：关键词operator 之后加一个类型名称，例如：<code>operator double() const;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rational</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	...</span><br><span class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> <span class="type">const</span></span>; <span class="comment">// 将Rational 转换为 double</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数会在以下情况被自动调用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Rational <span class="title">r</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>;  <span class="comment">// r的值是 1/2</span></span><br><span class="line"><span class="type">double</span> d = <span class="number">0.5</span> * r; <span class="comment">// 将r的值转换为double，然后执行运算。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但是下面这个情况就会出问题：<code>std::cout &lt;&lt; r;</code></p>
+<p>如果你忘了为 Rational 类重载一个 <em>operator&lt;&lt;</em>，那么按道理应该打印不成功。但是编译器面对上述动作，它会想尽办法（包括找出一系列可接受的隐式类型转换）让函数调用动作成功。此时编译器发现 <strong>只需调用 Rational::operator double， 将 r 转换为 double</strong>，就可以成功调用 <code>std::cout &lt;&lt; r;</code>，以浮点数的形式输出。</p>
+<p><strong>解决办法</strong>就是<strong>以功能对等的另一个函数取代类型转换操作符</strong>。即：定义一个 <code>doube asDouble() const;</code>函数。虽然使用时有些许不便，但“可因为不再默默调用那些不打算调用的函数而获得弥补”。C++ 标准库中的 string 类从没有 string 到 char*  的隐式类型转换操作符而采用 c_str 函数可能就是这个原因。</p>
+</li>
+<li><p>拥有单个参数（或除第一个参数外都有默认值的多参数）构造函数的类，很容易被隐式类型转换，最好加上 explicit 防止隐式类型转换。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Array</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Array</span>(<span class="type">int</span> size);</span><br><span class="line">	T&amp; <span class="keyword">operator</span>[](<span class="type">int</span> index);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> Array&lt;<span class="type">int</span>&gt; &amp;lhs, <span class="type">const</span> Array&lt;<span class="type">int</span>&gt; &amp; rhs);</span><br><span class="line"><span class="function">Array&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">10</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)&#123;</span><br><span class="line">    <span class="keyword">if</span>(a == b[i])&#123; <span class="comment">//想要写 a[i] == b[i]，但是这时候编译器并不会报错</span></span><br><span class="line">        <span class="comment">//  do something</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>if(a == b[i])</code> 并不会报错。因为编译器发现只要调用 Array\<int\> constructor（需一个 int 作为自变量），就可以把 int 转为 Array\<int\> object。就会产生类似这样的代码：</p>
+<p><code>if( a == static_cast&lt;Array&lt;int&gt; &gt;(b[i]))</code> 将 b[i] 转为 Array。此时程序会正常运行，但是结果却不尽人意。</p>
+<p>解决办法就是使用 C++ 特性：关键词 explicit。这个特性之所以被导入，就是为了解决隐式类型转换带来的问题。<code>explict Array(int size);</code></p>
+<p>还有一种被称为 <strong><em>proxy classes</em></strong> 的方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Array</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ArraySize</span> &#123; <span class="comment">// 这个类是新的</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="built_in">ArraySize</span>(<span class="type">int</span> numElements):<span class="built_in">theSize</span>(numElements)&#123;&#125;</span><br><span class="line">    	<span class="function"><span class="type">int</span> <span class="title">size</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> theSize;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="type">int</span> theSize;</span><br><span class="line">    &#125;;</span><br><span class="line">	<span class="built_in">Array</span>(<span class="type">int</span> lowBound, <span class="type">int</span> highBound);</span><br><span class="line">	<span class="built_in">Array</span>(ArraySize size); <span class="comment">// 注意新的声明</span></span><br><span class="line">...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这样写的代码在 Array\<int\> a(10); 的时候，编译器会先通过类型转换将 int 转换成 ArraySize，然后再进行构造，虽然麻烦很多，效率也低了很多，但是在一定程度上可以避免隐式转换带来的问题。</p>
+<p>对于自定义类型的类型转换，有一个规则：”<strong>没有任何一个转换程序可以内含一个以上的‘用户定制转换行为’(亦即单自变量constructor亦即隐式类型转换操作符)</strong>“，也就是说，必要的时候编译器可以先进行内置类型之间的转换再调用带单自变量的构造函数或者先调用隐式类型转换操作符在进行内置类型之间的转换，<strong>但不可能连续进行两次用户定制的类型转换</strong>！</p>
+<p>所以 此时<code>if(a == b[i])</code> 就会报错。不能从 int 转换成 ArraySize，再从 ArraySize 转为 Array。</p>
+</li>
+<li><p>总结允许编译器执行隐式转换弊大于利，所以<strong>非必要不要提供转换函数</strong>！ </p>
+</li>
+</ol>
+<h3 id="条款6：区别-increment-decrement-操作符的前置和后置形式"><a href="#条款6：区别-increment-decrement-操作符的前置和后置形式" class="headerlink" title="条款6：区别 increment/decrement 操作符的前置和后置形式"></a>条款6：区别 increment/decrement 操作符的前置和后置形式</h3><ol>
+<li><p>由于 increment/decrement 操作符的前置和后置式都是一元运算符，没有参数。因此重载时通过在后置式中加一个 int 型参数(哑元参数)加以区分，当后置式被调用时，编译器自动在为该参数指定一个0值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UPInt</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    UPInt&amp; <span class="keyword">operator</span>++();          <span class="comment">// 前置式++</span></span><br><span class="line">    <span class="type">const</span> UPInt <span class="keyword">operator</span>++(<span class="type">int</span>);  <span class="comment">// 后置式++</span></span><br><span class="line">    UPInt&amp; <span class="keyword">operator</span>--();          <span class="comment">// 前置式--</span></span><br><span class="line">    <span class="type">const</span> UPInt <span class="keyword">operator</span>++(<span class="type">int</span>);  <span class="comment">// 前置式--</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>前置式返回 reference，后置式返回 const 对象</strong>！</p>
+<p>后置 operator++(int) 的叠加是不允许的，即：i++++。</p>
+<p>原因有两个：一是与内建类型行为不一致（内建类型支持前置叠加)；二是其效果跟调用一次 operator++(int) 效果一样，这是违反直觉的。另外，后置式操作符使用 operator++(int)，参数的唯一目的只是为了区别前置式和后置式而已，当函数被调用时，编译器传递一个0作为int参数的值传递给该函数。</p>
+</li>
+<li><p>处理用户定制类型时，应该<strong>尽可能使用前置式</strong>。</p>
+</li>
+<li><p>后置式操作符的实现应以前置式为基础。</p>
+</li>
+</ol>
+<h3 id="条款7：千万不要重载-amp-amp-，-和，操作符"><a href="#条款7：千万不要重载-amp-amp-，-和，操作符" class="headerlink" title="条款7：千万不要重载&amp;&amp;，|| 和，操作符"></a>条款7：千万不要重载&amp;&amp;，|| 和，操作符</h3><p>&emsp;&emsp;C++ 对于“真假值表达式” 采用所谓的“骤死式” 评估方式。意思是一旦该表达式的真价值确定，及时表达式中还以后部分尚未检验，整个评估工作仍然结束。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* p;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (p != <span class="number">0</span> &amp;&amp; <span class="built_in">strlen</span>(p) &gt; <span class="number">10</span>)&#123;&#125; </span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;你无需担心调用 strlen 时 p 是否为 null 指针，因为如果 “p 是否为 0“ 的结果是否定的，那么 strlen 就绝对不会被调用。（对一个 null 指针调用 strlen，结果不可预期。）</p>
+<p>&emsp;&emsp;当你自己重载&amp;&amp;，|| 和，操作符时，你无法控制一个函数的自变量评估顺序，不一定会从左往右。然而正确的评估顺序应该是从左往右。</p>
+<p>&emsp;&emsp;你不能重载以下操作符：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">.*</td>
+<td>::</td>
+<td>?:</td>
+</tr>
+<tr>
+<td style="text-align:left">new</td>
+<td style="text-align:left">delete</td>
+<td>sizeof</td>
+<td>typeid</td>
+</tr>
+<tr>
+<td style="text-align:left">static_cast</td>
+<td style="text-align:left">dynamic_cast</td>
+<td>const_cast</td>
+<td>reinterpret_cast</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="条款8：了解各种不同意义的-new-和-delete"><a href="#条款8：了解各种不同意义的-new-和-delete" class="headerlink" title="条款8：了解各种不同意义的 new 和 delete"></a>条款8：了解各种不同意义的 new 和 delete</h3><ul>
+<li><p><strong>new operator</strong>：new操作符，用于动态分配内存并进行初始化;</p>
+<p><strong>operator new</strong>：标准库的函数，只分配内存不进行初始化(或者传递一个可用的内存地址)，可以自己进行重载，也可以主动调用。</p>
+<p><strong>placement new</strong>(定位new)：new operator的另外一种用法 ，在已分配的内存上构造对象; </p>
+<p>注意：new operator是操作符，placement new是这个操作符的一种用法，而operator new是标准库中的函数，new operator调用了 operator new。 </p>
+</li>
+<li><p>new operator，不能被重载</p>
+<p>当你写出这样的代码：</p>
+<p>string *ps = new string(“Memory Mangement”);</p>
+<p>你所使用的 new 是所谓的 <strong><em>new operator</em></strong>。它的动作分为两个方面：1、分配足够的内存，用来放置某类型的对象；2、调用 constructor，为刚才的内存中的那个对象设定初值。</p>
+</li>
+<li><p>和 malloc 一样，operator new 的唯一任务就是<strong>分配内存</strong>。</p>
+<p><code>void *rawMemory = operator new(sizeof(string));</code>  返回值类型是 <strong>void*</strong>   ！！！</p>
+<p>可以重载 operator new，但是第一个参数类型必须总是 size_t。</p>
+</li>
+<li><p><code>string *ps = new string(&quot;Memory Mangement&quot;);</code></p>
+<p>等价于</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> *rawMemory = <span class="keyword">operator</span> <span class="built_in">new</span>(<span class="built_in">sizeof</span>(string));   <span class="comment">// 取得原始内存，用来存放有一个string对象</span></span><br><span class="line"><span class="function">call <span class="title">string::string</span><span class="params">(<span class="string">&quot;Memory Mangement&quot;</span>)</span> on *memory</span>; <span class="comment">// 将内存中的对象初始化</span></span><br><span class="line">string *ps = <span class="built_in">static_cast</span>&lt;string*&gt;(memory); <span class="comment">// 让ps 指向新完成的对象</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将对象产生与 heap，请使用 new operator。它不但分配内存而且为该对象调用一个 constructor。</p>
+</li>
+<li><p>如果你只是打算分配内存，请调用 operator new，那就没有任何 constructor 会被调用。</p>
+</li>
+<li><p>如果你打算在 heap objects 产生时自己决定内存分配方式，请写一个自己的 operator new，并使用 new operator，它会自动调用你所写的 operator new。</p>
+</li>
+<li><p>如果你打算在已分配并拥有指针的内存中构造对象，请使用 placement new。</p>
+</li>
+<li><p>！！<strong>new operator 与 delete operator 配合使用。</strong></p>
+</li>
+<li><p>！！<strong>operator new 与 operator delete 配合使用。</strong>千万不能错误搭配。</p>
+</li>
+</ul>
+<h2 id="异常（Exceptions）"><a href="#异常（Exceptions）" class="headerlink" title="异常（Exceptions）"></a>异常（Exceptions）</h2><h3 id="条款9：利用-destructors-避免泄漏资源"><a href="#条款9：利用-destructors-避免泄漏资源" class="headerlink" title="条款9：利用 destructors 避免泄漏资源"></a>条款9：利用 destructors 避免泄漏资源</h3><p>！！！每当 new 一个新的对象，一定要确保成功 delete 它，否则就会造成内存泄漏。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">processAdoptions</span><span class="params">(istream&amp; dataSource)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(dataSource)&#123;</span><br><span class="line">    	ALA *pa = <span class="built_in">readALA</span>(dataSource); <span class="comment">// new 新的对象</span></span><br><span class="line">        pa-&gt;<span class="built_in">processAdoption</span>(); <span class="comment">// 处理事务</span></span><br><span class="line">        <span class="keyword">delete</span> pa; <span class="comment">// 删除pa指向的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是如果 <code>pa-&gt;processAdoption();</code>抛出异常，之后的所有语句都会被跳过，不再执行，这意味着 <code>deleta pa;</code>不会执行，造成内存泄漏。</p>
+<p>解决方法1：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">processAdoptions</span><span class="params">(istream&amp; dataSource)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(dataSource)&#123;</span><br><span class="line">    	ALA *pa = <span class="built_in">readALA</span>(dataSource);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">        	pa-&gt;<span class="built_in">processAdoption</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="built_in">catch</span>(...)&#123;</span><br><span class="line">    		<span class="keyword">delete</span> pa; <span class="comment">//在抛出异常的时候避免泄露</span></span><br><span class="line">    		<span class="keyword">throw</span>;</span><br><span class="line">   		&#125;</span><br><span class="line">    	<span class="keyword">delete</span> pa; <span class="comment">//在不抛出异常的时候避免泄露</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为这种情况会需要删除两次pa，代码维护很麻烦，所以需要进行优化：</p>
+<p>只要我们能够将 “一定得执行的清理代码” 移到 processAdoptions 函数的某个局部对象的 destructors 内即可。因为局部对象总是会在函数结束时被析构，不论函数如何结束。</p>
+<p>如何把 delete 动作从 processAdoptions 函数移到函数内的某个局部对象的 destructor 内：以一个 “类似指针的对象（智能指针）”取代指针 pa。当这个类似指针的对象被（自动）销毁，我们可以令其 destructor 调用 delete。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">processAdoptions</span><span class="params">(istream&amp; dataSource)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(dataSource)&#123;</span><br><span class="line">        <span class="function">auto_ptr&lt;ALA&gt; <span class="title">pa</span><span class="params">(readALA(dataSource))</span></span>; <span class="comment">// 现在auto_ptr已被弃用，推荐使用 shared_ptr!!!</span></span><br><span class="line">        pa-&gt;<span class="built_in">processAdoption</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="条款10：在-constructors-内阻止资源泄漏（resource-leak）"><a href="#条款10：在-constructors-内阻止资源泄漏（resource-leak）" class="headerlink" title="条款10：在 constructors 内阻止资源泄漏（resource leak）"></a>条款10：在 constructors 内阻止资源泄漏（resource leak）</h3><p>考虑下面的情况：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BookEntry::<span class="built_in">BookEntry</span>():<span class="built_in">theImage</span>(<span class="number">0</span>), <span class="built_in">theAudioClip</span>(<span class="number">0</span>)&#123;</span><br><span class="line">	theImage = <span class="keyword">new</span> <span class="built_in">Image</span>(imageFileName);</span><br><span class="line">	theAudioClip = <span class="keyword">new</span> <span class="built_in">AudioClip</span>(audioClipFileName);</span><br><span class="line">&#125;</span><br><span class="line">BookEntry::~<span class="built_in">BookEntry</span>()&#123;</span><br><span class="line">	<span class="keyword">delete</span> theImage;</span><br><span class="line">    <span class="keyword">delete</span> theAudioClip;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 <code>theAudioClip = new AudioClip(audioClipFileName);</code> 有 exception 抛出，那么函数构造失败，destructor 自然不会被调用。但是 theImage 对象构造成功了，这就导致 BookEntry constructor 所分配的 Image object 还是泄漏了。</p>
+<p>由于C++ 不自动清理那些 “构造期间抛出 exceptions” 的对象，所以你必须设计你的 constructor，使得它们能够自动清理。通常只需将所有可能的 exceptions 捕捉起来，执行某种清理工作，然后重新抛出 exception，使它继续传播出去即可。</p>
+<p>解决办法一：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">BookEntry::<span class="built_in">BookEntry</span>()&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">    	theImage = <span class="keyword">new</span> <span class="built_in">Image</span>(imageFileName);</span><br><span class="line">    	theAudioClip = <span class="keyword">new</span> <span class="built_in">AudioClip</span>(audioClipFileName);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(...)&#123; <span class="comment">// 在构造函数内捕捉异常</span></span><br><span class="line">    	<span class="keyword">delete</span> theImage;</span><br><span class="line">    	<span class="keyword">delete</span> theAudioClip;</span><br><span class="line">    	<span class="keyword">throw</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个更好的解答是，接收条款9的忠告，将 theImage 和 theAudioClip 所指对象视为资源，交给局部对象来管理。 不论 theImage 和 theAudioClip 都是指向动态分配而得的对象，当指针本身停止活动，那些对象都应该被删除。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BookEntry</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:......</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">const</span> auto_ptr&lt;Image&gt; theImage; <span class="comment">// 同样的，现在auto_ptr已被弃用，推荐使用 shared_ptr!!!</span></span><br><span class="line">	<span class="type">const</span> auto_ptr&lt;AudioClip&gt; theAudioClip;</span><br><span class="line">&#125;</span><br><span class="line">BookEntry::<span class="built_in">BookEntry</span>(<span class="type">const</span> string&amp; imageFileName, <span class="type">const</span> string&amp; audioClipFileName):</span><br><span class="line">	<span class="built_in">theImage</span>(imageFileName != <span class="string">&quot;&quot;</span> ? <span class="keyword">new</span> <span class="built_in">Image</span>(imageFileName) : <span class="number">0</span>), </span><br><span class="line">	<span class="built_in">theAudioClip</span>(audioClipFileName != <span class="string">&quot;&quot;</span> ? <span class="keyword">new</span> <span class="built_in">AudiaClip</span>(audioClipFileName) : <span class="number">0</span>)</span><br><span class="line">    &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这样不仅解决了在 constructors 内阻止资源泄漏，而且还大幅简化 destructor。</p>
+<p><code>BookEntry::~BookEntry()&#123;&#125;  // 不需要做什么事！</code> </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://hr-insist.github.io">HRui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">https://hr-insist.github.io/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hr-insist.github.io" target="_blank">Modesty</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="/C/More_Effective_C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/MoreEffectiveC++.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Java/%E5%85%B3%E4%BA%8ESpringBoot/"><img class="prev-cover" src="/Java/%E5%85%B3%E4%BA%8ESpringBoot/cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关于SpringBoot</div></div></a></div><div class="next-post pull-right"><a href="/C/STL%E6%A0%87%E5%87%86%E5%BA%93%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B-%E4%BE%AF%E6%8D%B7/"><img class="next-cover" src="/C/STL%E6%A0%87%E5%87%86%E5%BA%93%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B-%E4%BE%AF%E6%8D%B7/index.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">STL标准库和泛型编程(侯捷)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/C/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A-%E4%BE%AF%E6%8D%B7%EF%BC%89/" title="C++面向对象高级编程（上-侯捷）"><img class="cover" src="/C/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A-%E4%BE%AF%E6%8D%B7%EF%BC%89/index.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-04</div><div class="title">C++面向对象高级编程（上-侯捷）</div></div></a></div><div><a href="/C/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8B-%E4%BE%AF%E6%8D%B7%EF%BC%89/" title="C++面向对象高级编程（下-侯捷）"><img class="cover" src="/C/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8B-%E4%BE%AF%E6%8D%B7%EF%BC%89/index.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-06</div><div class="title">C++面向对象高级编程（下-侯捷）</div></div></a></div><div><a href="/C/EffectiveC++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="Effective C++阅读笔记"><img class="cover" src="/C/EffectiveC++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/EffectiveC++.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-09</div><div class="title">Effective C++阅读笔记</div></div></a></div><div><a href="/C/STL%E6%A0%87%E5%87%86%E5%BA%93%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B-%E4%BE%AF%E6%8D%B7/" title="STL标准库和泛型编程(侯捷)"><img class="cover" src="/C/STL%E6%A0%87%E5%87%86%E5%BA%93%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B-%E4%BE%AF%E6%8D%B7/index.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-12</div><div class="title">STL标准库和泛型编程(侯捷)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">HRui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HR-Insist"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%AE%E9%A2%98%EF%BC%88Basics%EF%BC%89"><span class="toc-text">基础议题（Basics）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE1%EF%BC%9A%E4%BB%94%E7%BB%86%E5%8C%BA%E5%88%AB-pointers-%E5%92%8C-references"><span class="toc-text">条款1：仔细区别 pointers 和 references</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE2%EF%BC%9A%E6%9C%80%E5%A5%BD%E4%BD%BF%E7%94%A8-C-%E8%BD%AC%E5%9E%8B%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">条款2：最好使用 C++ 转型操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE3%EF%BC%9A%E7%BB%9D%E5%AF%B9%E4%B8%8D%E8%A6%81%E4%BB%A5%E5%A4%9A%E6%80%81%EF%BC%88polymorphically%EF%BC%89%E6%96%B9%E5%BC%8F%E5%A4%84%E7%90%86%E6%95%B0%E7%BB%84"><span class="toc-text">条款3：绝对不要以多态（polymorphically）方式处理数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE4%EF%BC%9A%E9%9D%9E%E5%BF%85%E8%A6%81%E4%B8%8D%E6%8F%90%E4%BE%9B-default-constructor"><span class="toc-text">条款4：非必要不提供 default constructor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88Operator%EF%BC%89"><span class="toc-text">操作符（Operator）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE5%EF%BC%9A%E5%AF%B9%E5%AE%9A%E5%88%B6%E7%9A%84%E2%80%9C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0%E2%80%9D%E4%BF%9D%E6%8C%81%E8%AD%A6%E6%83%95"><span class="toc-text">条款5：对定制的“类型转换函数”保持警惕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE6%EF%BC%9A%E5%8C%BA%E5%88%AB-increment-decrement-%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E5%89%8D%E7%BD%AE%E5%92%8C%E5%90%8E%E7%BD%AE%E5%BD%A2%E5%BC%8F"><span class="toc-text">条款6：区别 increment&#x2F;decrement 操作符的前置和后置形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE7%EF%BC%9A%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E9%87%8D%E8%BD%BD-amp-amp-%EF%BC%8C-%E5%92%8C%EF%BC%8C%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">条款7：千万不要重载&amp;&amp;，|| 和，操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE8%EF%BC%9A%E4%BA%86%E8%A7%A3%E5%90%84%E7%A7%8D%E4%B8%8D%E5%90%8C%E6%84%8F%E4%B9%89%E7%9A%84-new-%E5%92%8C-delete"><span class="toc-text">条款8：了解各种不同意义的 new 和 delete</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%EF%BC%88Exceptions%EF%BC%89"><span class="toc-text">异常（Exceptions）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE9%EF%BC%9A%E5%88%A9%E7%94%A8-destructors-%E9%81%BF%E5%85%8D%E6%B3%84%E6%BC%8F%E8%B5%84%E6%BA%90"><span class="toc-text">条款9：利用 destructors 避免泄漏资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E6%AC%BE10%EF%BC%9A%E5%9C%A8-constructors-%E5%86%85%E9%98%BB%E6%AD%A2%E8%B5%84%E6%BA%90%E6%B3%84%E6%BC%8F%EF%BC%88resource-leak%EF%BC%89"><span class="toc-text">条款10：在 constructors 内阻止资源泄漏（resource leak）</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Java/Dubbo%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title="Dubbo异常处理"><img src="/Java/Dubbo%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dubbo异常处理"/></a><div class="content"><a class="title" href="/Java/Dubbo%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" title="Dubbo异常处理">Dubbo异常处理</a><time datetime="2024-07-22T15:40:58.000Z" title="发表于 2024-07-22 23:40:58">2024-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/uncategorized/SpringCloud%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="SpringCloud谷粒商城中遇到的问题"><img src="/images/default_cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud谷粒商城中遇到的问题"/></a><div class="content"><a class="title" href="/uncategorized/SpringCloud%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="SpringCloud谷粒商城中遇到的问题">SpringCloud谷粒商城中遇到的问题</a><time datetime="2023-10-15T06:27:11.000Z" title="发表于 2023-10-15 14:27:11">2023-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Java/Feign%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" title="Feign远程调用"><img src="/Java/Feign%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Feign远程调用"/></a><div class="content"><a class="title" href="/Java/Feign%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/" title="Feign远程调用">Feign远程调用</a><time datetime="2023-10-11T02:59:20.000Z" title="发表于 2023-10-11 10:59:20">2023-10-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By HRui</div><div class="footer_custom_text"><p> <a style="margin-inline:5px"target="_blank" href="https://hexo.io/"> <img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为 Hexo" alt="HEXO"> </a> <a style="margin-inline:5px"target="_blank" href="https://butterfly.js.org/"> <img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用 Butterfly" alt="Butterfly"> </a> <a style="margin-inline:5px"target="_blank" href="https://github.com/"> <img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由 GitHub 托管" alt="GitHub"> </a> <a style="margin-inline:5px"target="_blank"href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> <img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt="img" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"> </a> </p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
