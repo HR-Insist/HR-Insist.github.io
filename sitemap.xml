@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hr-insist.github.io/Java/Dubbo%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2024-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hr-insist.github.io/Paper-Notes/Paper-ICLR-2020-Vision_Transformer/</loc>
     
     <lastmod>2024-07-23</lastmod>
@@ -251,6 +260,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://hr-insist.github.io/tags/java/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hr-insist.github.io/tags/Dubbo/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -276,6 +299,13 @@
   
   <url>
     <loc>https://hr-insist.github.io/categories/Paper-Notes/</loc>
+    <lastmod>2024-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hr-insist.github.io/categories/Java/</loc>
     <lastmod>2024-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

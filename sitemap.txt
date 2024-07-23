@@ -1,3 +1,4 @@
+https://hr-insist.github.io/Java/Dubbo%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/
 https://hr-insist.github.io/Paper-Notes/Paper-ICLR-2020-Vision_Transformer/
 https://hr-insist.github.io/Paper-Notes/Paper-ICCV-2021-Swin_Transformer/
 https://hr-insist.github.io/Paper-Notes/Paper-CVPR-2021-Uformer/
@@ -28,7 +29,10 @@ https://hr-insist.github.io/tags/%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D/
 https://hr-insist.github.io/tags/Image-Restoration/
 https://hr-insist.github.io/tags/Compute-Vision/
 https://hr-insist.github.io/tags/Butterfly/
+https://hr-insist.github.io/tags/java/
+https://hr-insist.github.io/tags/Dubbo/
 https://hr-insist.github.io/categories/C/
 https://hr-insist.github.io/categories/Git/
 https://hr-insist.github.io/categories/Hexo/
 https://hr-insist.github.io/categories/Paper-Notes/
+https://hr-insist.github.io/categories/Java/
