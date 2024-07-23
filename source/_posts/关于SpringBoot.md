@@ -2,7 +2,8 @@
 title: 关于SpringBoot
 date: 2023-08-04 09:20:38
 categories: Java
-tags: Java
+tags:
+  - Java
 keywords: Java, SpringBoot
 description: 记录一些学习Springboot的知识点
 top_img: false
